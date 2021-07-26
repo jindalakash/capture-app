@@ -4,6 +4,12 @@ import { getTrackedEntityTypeThrowIfNotFound } from '../metaData';
 import { programCollection } from '../metaDataMemoryStores';
 import getTeiDisplayName from '../trackedEntityInstances/getDisplayName';
 
+
+const filterMemberName = (displayName, attributes) => {
+    const memberNameFilter = attributes.filter(attribute => (attribute.displayName === displayName));
+    return memberNameFilter.length > 0 ? memberNameFilter[0].value : '';
+};
+
 const getClientConstraintByType = {
     TRACKED_ENTITY_INSTANCE: (constraint, relationshipConstraint) => {
         const tei = constraint.trackedEntityInstance;
@@ -17,6 +23,8 @@ const getClientConstraintByType = {
             name: getTeiDisplayName(values, trackedEntityType.attributes, trackedEntityType.name),
             type: 'TRACKED_ENTITY_INSTANCE',
             linkProgramId: relationshipConstraint.programId,
+            memberName: filterMemberName('Organization name', tei.attributes),
+            partnerStatus: filterMemberName('Partner status', tei.attributes),
         };
     },
     PROGRAM_STAGE_INSTANCE: (constraint) => {
@@ -54,5 +62,6 @@ export default function convertToClientRelationship(serverRelationship: Object, 
         },
         from: getClientConstraintByType[relationshipType.from.entity](serverRelationship.from, relationshipType.from),
         to: getClientConstraintByType[relationshipType.to.entity](serverRelationship.to, relationshipType.to),
+
     };
 }

@@ -113,7 +113,7 @@ class NewEventNewRelationshipWrapper extends React.Component<Props, State> {
                 <Paper className={classes.newRelationshipPaper}>
                     {/* $FlowFixMe[cannot-spread-inexact] automated comment */}
                     <NewRelationship
-                        header={i18n.t('New event relationship')}
+                        header={i18n.t('Add New Member')}
                         onGetUnsavedAttributeValues={this.onGetUnsavedAttributeValues}
                         {...passOnProps}
                     />

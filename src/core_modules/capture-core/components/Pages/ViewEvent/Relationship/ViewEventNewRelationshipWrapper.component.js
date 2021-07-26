@@ -80,7 +80,7 @@ class ViewEventNewRelationshipWrapper extends React.Component<Props, State> {
             className={this.props.classes.headerContainer}
         >
             <div className={this.props.classes.header} >
-                {i18n.t('New event relationship')}
+                {i18n.t('Add New Member')}
             </div>
         </div>
     );
@@ -101,7 +101,7 @@ class ViewEventNewRelationshipWrapper extends React.Component<Props, State> {
                 <Paper className={classes.newRelationshipPaper}>
                     {/* $FlowFixMe[cannot-spread-inexact] automated comment */}
                     <NewRelatonship
-                        header={i18n.t('New event relationship')}
+                        header={i18n.t('Add New Member')}
                         {...passOnProps}
                     />
                 </Paper>

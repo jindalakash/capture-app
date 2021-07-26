@@ -129,7 +129,8 @@ class Relationships extends React.Component<Props> {
                     <div className={classes.relationshipEntities}>
                         {this.getEntityName(relationship.from)}
                         <ArrowIcon className={classes.arrowIcon} />
-                        {this.getEntityName(relationship.to)}
+                        {this.getEntityName(relationship.to)}    <ArrowIcon className={classes.arrowIcon} /> {`${relationship.to.memberName}(${relationship.to.partnerStatus})`} 
+
                     </div>
                 </div>
                 <div className={classes.relationshipActions}>
@@ -190,7 +191,7 @@ class Relationships extends React.Component<Props> {
                                 small={smallMainButton}
                                 dataTest="add-relationship-button"
                             >
-                                {i18n.t('Add relationship')}
+                                {i18n.t('Add Member')}
                             </Button>
                         </div>
                     </Tooltip>

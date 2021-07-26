@@ -1,3 +1,6 @@
+/* eslint-disable complexity */
+/* eslint-disable no-console */
+/* eslint-disable no-nested-ternary */
 // @flow
 import React, { type ComponentType } from 'react';
 import { withStyles } from '@material-ui/core/styles';
@@ -49,46 +52,46 @@ const ActionButtonsPlain = ({
     showResetButton,
 }: Props & CssClasses) => {
     const { trackedEntityName, scopeType, programName } = useScopeInfo(selectedProgramId);
-
     return (
         <div className={classes.container}>
             {
-                (scopeType !== scopeTypes.TRACKER_PROGRAM && scopeType !== scopeTypes.EVENT_PROGRAM) ?
-                    <Button
-                        small
-                        secondary
-                        dataTest="new-event-button"
-                        className={classes.marginRight}
-                        onClick={onNewClickWithoutProgramId}
-                    >
-                        { i18n.t('New') }
-                    </Button>
-                    :
-                    <DropdownButton
-                        small
-                        secondary
-                        dataTest="new-button"
-                        className={classes.marginRight}
-                        component={
-                            <FlyoutMenu
-                                dense
-                                maxWidth="250px"
-                            >
-                                <MenuItem
-                                    dataTest="new-menuitem-one"
-                                    label={i18n.t('New {{trackedEntityName}} in {{programName}}', { trackedEntityName, programName })}
-                                    onClick={onNewClick}
-                                />
-                                <MenuItem
-                                    dataTest="new-menuitem-two"
-                                    label={`${i18n.t('New')}...`}
-                                    onClick={onNewClickWithoutProgramId}
-                                />
-                            </FlyoutMenu>
-                        }
-                    >
-                        { i18n.t('New') }
-                    </DropdownButton>
+                (selectedProgramId === 'EfR4Fsro9hh' || selectedProgramId === 'js1LQbJJfs2' || selectedProgramId === 'FwmpTa6NYLF' || selectedProgramId === 'IEfYFPzYFpL') ? null :
+                    ((scopeType !== scopeTypes.TRACKER_PROGRAM && scopeType !== scopeTypes.EVENT_PROGRAM) ?
+                        <Button
+                            small
+                            secondary
+                            dataTest="new-event-button"
+                            className={classes.marginRight}
+                            onClick={onNewClickWithoutProgramId}
+                        >
+                            { i18n.t('New') }
+                        </Button>
+                        :
+                        <DropdownButton
+                            small
+                            secondary
+                            dataTest="new-button"
+                            className={classes.marginRight}
+                            component={
+                                <FlyoutMenu
+                                    dense
+                                    maxWidth="250px"
+                                >
+                                    <MenuItem
+                                        dataTest="new-menuitem-one"
+                                        label={i18n.t('New {{trackedEntityName}} in {{programName}}', { trackedEntityName, programName })}
+                                        onClick={onNewClick}
+                                    />
+                                    <MenuItem
+                                        dataTest="new-menuitem-two"
+                                        label={`${i18n.t('New')}...`}
+                                        onClick={onNewClickWithoutProgramId}
+                                    />
+                                </FlyoutMenu>
+                            }
+                        >
+                            { i18n.t('New') }
+                        </DropdownButton>)
             }
 
             {

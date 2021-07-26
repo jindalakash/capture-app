@@ -11,7 +11,6 @@ import { type ProgramStage } from '../../../../../metaData';
 import withLoadingIndicator from '../../../../../HOC/withLoadingIndicator';
 import { ConnectedEntity } from './ConnectedEntity';
 import type { Entity } from '../../../../Relationships/relationships.types';
-
 const LoadingRelationships =
     withLoadingIndicator(null, props => ({ style: props.loadingIndicatorStyle }))(Relationships);
 
@@ -32,7 +31,7 @@ const loadingIndicatorStyle = {
     width: 36,
 };
 
-const headerText = i18n.t('Relationships');
+const headerText = i18n.t('Attendee list');
 
 const getStyles = (theme: Theme) => ({
     badge: {
